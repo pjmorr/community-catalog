@@ -19,8 +19,8 @@ services:
       ports:
       - 8443:8443/tcp
       links:
-      - etcd
-      - kubernetes
+      - etcd:etcd
+      - kubernetes:kubernetes
       privileged: true
       volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -35,7 +35,7 @@ services:
         io.rancher.scheduler.global: "true"
         io.rancher.scheduler.affinity:host_label_ne: nopods=true
       links:
-      - openshift
+      - openshift:openshift
       environment:
         KUBECONFIG: /etc/origin/master/admin.kubeconfig
         RANCHER_DEBUG: "true"
