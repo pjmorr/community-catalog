@@ -18,9 +18,6 @@ services:
         CREATE_REGISTRY: "true"
       ports:
       - 8443:8443/tcp
-      links:
-      - etcd:etcd
-      - kubernetes:kubernetes
       privileged: true
       volumes:
       - /var/run/docker.sock:/var/run/docker.sock
