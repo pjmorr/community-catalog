@@ -21,6 +21,8 @@ logstash-indexer:
   - /etc/logstash
   - -r
   image: docker.elastic.co/logstash/logstash:6.1.1
+  environment:
+  - 'XPACK.MONITORING.ELASTICSEARCH.URL=http://elasticsearch.rancher.internal:9200'
   links:
   - redis:redis
   external_links:
@@ -51,6 +53,8 @@ logstash-collector:
   - /etc/logstash
   - -r
   image: docker.elastic.co/logstash/logstash:6.1.1
+  environment:
+  - 'XPACK.MONITORING.ELASTICSEARCH.URL=http://elasticsearch.rancher.internal:9200'
   stdin_open: true
   labels:
     io.rancher.sidekicks: logstash-collector-config
