@@ -91,13 +91,19 @@ catalog:
           description: "The VOLUME driver to associate with this server"
           label: "VOLUME Driver"
           required: true
-          default: "local"
+          default: "rancher-ebs"
           type: enum
           options:
             - local
             - rancher-nfs
             - rancher-efs
             - rancher-ebs
+        - variable: "MOUNT_OPTS"
+          label: "Mount Options"
+          description: "Comma delimited list of default mount options, for example: 'proto=udp'. Do not specify `nfsvers` option, it will be ignored."
+          required: true
+          type: "string"
+          default: 'size=500'
 
 services:
 

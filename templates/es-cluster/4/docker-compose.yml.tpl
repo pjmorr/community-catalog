@@ -119,4 +119,6 @@ services:
 volumes:
   es-storage-volume:
     driver: ${VOLUME_DRIVER}
+    driver_opts:
+      - ${MOUNT_OPTS}
     per_container: true
